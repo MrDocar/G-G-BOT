@@ -69,7 +69,7 @@ bot.on('message',message => {
         /* message d'avertissement */
         var quarantaine = new Discord.RichEmbed()
             .setColor("#ff0000")
-            .addField(`*** :track_next: ${raison} :track_previous: ***`,message.author +" est désormais en quarantaine car il a enfreint les régles avec les message ```js\n "+message.content+"```")
+            .addField(`*** :track_next: ${raison} :track_previous: ***`,message.author +" est désormais en quarantaine car il a enfreint les régles avec le message ```js\n "+message.content+"```")
 
             message.channel.send(quarantaine);
         message.member.addRole(message.member.guild.roles.find("name", "⛔ Zone rouge / red zone ⛔")); // mise en quarantaine
