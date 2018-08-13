@@ -30,7 +30,7 @@ bot.on('message',message => {
         /* Boucle qui analize chaque lettre */
         for (let i = 0; i < strings.length; i++) {
             character = strings.charAt(i);
-            if (isEmoji(message.content) == true) {
+            if (isEmoji(message.content) || character != '!' || character != '?' || character != '.') {
                 null;
             } else {
                 /* Détection si c'est un caratere numerique */
