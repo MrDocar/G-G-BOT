@@ -17,7 +17,6 @@ bot.on('ready', () => {
 
 /* Connexion du bot */
 bot.login(process.env.TOKEN);
-
 /* Réception d'un message */
 bot.on('message',message => {
     /* Je vérifie que c'est pas un message du bot */
@@ -31,16 +30,20 @@ bot.on('message',message => {
         /* Boucle qui analize chaque lettre */
         for (let i = 0; i < strings.length; i++) {
             character = strings.charAt(i);
-
-            /* Détection si c'est un caratere numerique */
-            if (!isNaN(character * 1)){
-                calcule = calcule+1; // on ajoute 1 a la variable "calcule"
-            }else{
-                /* Détection si c'est un caratere majuscule */
-                if (character == character.toUpperCase()) {
+            if (isEmoji(message.content) == true) {
+                null;
+            } else {
+                /* Détection si c'est un caratere numerique */
+                if (!isNaN(character * 1)){
                     calcule = calcule+1; // on ajoute 1 a la variable "calcule"
+                } else {
+                    /* Détection si c'est un caratere majuscule */
+                    if (character == character.toUpperCase()) {
+                        calcule = calcule+1; // on ajoute 1 a la variable "calcule"
+                    }
                 }
             }
+
         }
 
         /* On regarde si le nombre de majuscule et de caratere numérique est égale a nombre de caratere dans le message */
@@ -58,7 +61,6 @@ bot.on('message',message => {
                 x = insulte.length;
             }
         }
-
     }
 
     function quarantaine(raison) {
@@ -70,7 +72,7 @@ bot.on('message',message => {
             .addField(`*** :track_next: ${raison} :track_previous: ***`,message.author +" est désormais en quarantaine car il a enfreint les régles avec les message ```js\n "+message.content+"```")
 
             message.channel.send(quarantaine);
-        message.member.addRole(message.member.guild.roles.find("name", "Reckt")); // mise en quarantaine
+        message.member.addRole(message.member.guild.roles.find("name", "⛔ Zone rouge / red zone ⛔")); // mise en quarantaine
     }
 
     function no_accent(my_string)
@@ -95,5 +97,16 @@ bot.on('message',message => {
             return my_string;
     }
 
+    function isEmoji(str) {
+        var ranges = [
+            '\ud83c[\udf00-\udfff]', // U+1F300 to U+1F3FF
+            '\ud83d[\udc00-\ude4f]', // U+1F400 to U+1F64F
+            '\ud83d[\ude80-\udeff]' // U+1F680 to U+1F6FF
+        ];
+        if (str.match(ranges.join('|'))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 });
-
