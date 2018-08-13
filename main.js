@@ -67,11 +67,11 @@ bot.on('message',message => {
         console.log(raison +' de ' + message.author + ' avec le message '+message.content); //message dans la console
         message.channel.bulkDelete(1); // Supression du message
         /* message d'avertissement */
-        var quarantaine = new Discord.RichEmbed()
+        var embed_quarantaine = new Discord.RichEmbed()
             .setColor("#ff0000")
             .addField(`*** :track_next: ${raison} :track_previous: ***`,message.author +" est désormais en quarantaine car il a enfreint les régles avec le message ```js\n "+message.content+"```")
 
-            message.channel.send(quarantaine);
+            message.channel.send(embed_quarantaine);
         message.member.addRole(message.member.guild.roles.find("name", "⛔ Zone rouge / red zone ⛔")); // mise en quarantaine
     }
 
