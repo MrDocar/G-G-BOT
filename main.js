@@ -31,6 +31,7 @@ bot.on('message',message => {
             i=0;
             calcule = 0;
             character='';
+            total = strings.length;
 
             for (let x = 0; x < insulte.length; x++) {
                 stringslower = strings.toLowerCase(); //on mes tout en minuscule
@@ -46,9 +47,12 @@ bot.on('message',message => {
                 if (isEmoji(message.content) || character == '!' || character == '?' || character == '.') {
                     null;
                 } else {
+                    if (character == ' ') {
+                        calcule = calcule -1;
+                    }
                     /* Détection si c'est un caratere numerique */
                     if (!isNaN(character * 1)){
-                        calcule = calcule+1; // on ajoute 1 a la variable "calcule"
+                        calcule = calcule + 1; // on ajoute 1 a la variable "calcule"
                     }
                     /* Détection si c'est un caratere majuscule */
                     if (character == character.toUpperCase()) {
@@ -60,17 +64,22 @@ bot.on('message',message => {
             /* Boucle qui analize chaque lettre */
             for (let i = 0; i < strings.length; i++) {
                 Resultatvalide = strings.indexOf(valide[i]);
+                motvalide = valide[i]
                 if (Resultatvalide != -1) {
-                    calcule = calcule - valide[i].length;
+                    calcule = calcule - motvalide.length;
+                    if (message.content.length != motvalide.length) {
+                        total = total - motvalide.length;
+                    }
                 }
             }
-
+            
             /* On regarde si le nombre de majuscule et de caratere numérique est égale a nombre de caratere dans le message */
-            if (calcule == strings.length) {
+            if (calcule == total) {
                 quarantaine("Caps Lock");
             }
         }
     }
+
 
     function quarantaine(raison) {
         console.log(raison +' de ' + message.author + ' avec le message '+message.content); //message dans la console
