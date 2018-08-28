@@ -16,7 +16,7 @@ bot.on('ready', () => {
 });
 
 /* Connexion du bot */
-bot.login('process.env.TOKEN');
+bot.login(process.env.TOKEN);
 
 /* Réception d'un message */
 bot.on('message',message => {
