@@ -22,8 +22,6 @@ bot.login(process.env.TOKEN);
 bot.on('message',message => {
     /* Je vérifie que c'est pas un message du bot */
     if (message.author != '<@478284566130327554>' || message.author != '<@446716898365669376>' || message.author != '<@155149108183695360>' ) {
-           
-
         if (message.attachments.size == 0 && message.embeds.length == 0)  {
             
             /* Déclaration des variable */
@@ -44,8 +42,8 @@ bot.on('message',message => {
 
             for (let y = 0; y < strings.length; y++) {
                 character = strings.charAt(y);
-                if (isEmoji(message.content) || character == '!' || character == '?' || character == '.') {
-                    null;
+                if (isEmoji(message.content) || character == '!' || character == '?' || character == '.' || character == '^' || character == ':' || character == ')' || character == '('|| character == ';' || character == '/') {
+                    total = total-1;
                 } else {
                     if (character == ' ') {
                         calcule = calcule -1;
@@ -74,7 +72,7 @@ bot.on('message',message => {
             }
             
             /* On regarde si le nombre de majuscule et de caratere numérique est égale a nombre de caratere dans le message */
-            if (calcule == total) {
+            if (calcule == total && total != 0) {
                 quarantaine("Caps Lock");
             }
         }
