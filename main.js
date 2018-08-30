@@ -28,7 +28,7 @@ bot.on('message',message => {
             strings = no_accent(message.content); // Récupération du message
             i=0;
             calcule = 0;
-            character='';
+            caracteres='';
             total = strings.length;
 
             for (let x = 0; x < insulte.length; x++) {
@@ -41,21 +41,18 @@ bot.on('message',message => {
             }
 
             for (let y = 0; y < strings.length; y++) {
-                character = strings.charAt(y);
-                if (isEmoji(message.content) || character == '!' || character == '?' || character == '.' || character == '^' || character == ':' || character == ')' || character == '('|| character == ';' || character == '/') {
+                caracteres = strings.charAt(y);
+                if (isEmoji(message.content) || caracteres == '!' || caracteres == '?' || caracteres == '.' || caracteres == '^' || caracteres == ':' || caracteres == ')' || caracteres == '('|| caracteres == ';' || caracteres == '/') {
                     total = total-1;
                 } else {
-                    if (character == ' ') {
+                    if (caracteres == ' ') {
                         calcule = calcule -1;
-                    }
-                    /* Détection si c'est un caratere numerique */
-                    if (!isNaN(character * 1)){
+                    } else if (!isNaN(caracteres * 1)){ // Détection si c'est un caratere numerique
                         calcule = calcule + 1; // on ajoute 1 a la variable "calcule"
-                    }
-                    /* Détection si c'est un caratere majuscule */
-                    if (character == character.toUpperCase()) {
+                    } else if (caracteres == caracteres.toUpperCase()) {// Détection si c'est un caratere majuscule
                         calcule = calcule+1; // on ajoute 1 a la variable "calcule"
                     }
+
                 }
             }
 
