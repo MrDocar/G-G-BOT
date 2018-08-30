@@ -42,11 +42,13 @@ bot.on('message',message => {
 
             for (let y = 0; y < strings.length; y++) {
                 caracteres = strings.charAt(y);
-                if (isEmoji(message.content) || caracteres == '!' || caracteres == '?' || caracteres == '.' || caracteres == '^' || caracteres == ':' || caracteres == ')' || caracteres == '('|| caracteres == ';' || caracteres == '/') {
-                    total = total-1;
+                if (isEmoji(message.content)) {
+                    null;
                 } else {
-                    if (caracteres == ' ') {
-                        calcule = calcule -1;
+                    if (caracteres == '!' || caracteres == '?' || caracteres == '.' || caracteres == '^' || caracteres == ':' || caracteres == ')' || caracteres == '('|| caracteres == ';' || caracteres == '/') {
+                        total = total-1;
+                    } else if (caracteres == ' ') {
+                        total = total-1;
                     } else if (!isNaN(caracteres * 1)){ // Détection si c'est un caratere numerique
                         calcule = calcule + 1; // on ajoute 1 a la variable "calcule"
                     } else if (caracteres == caracteres.toUpperCase()) {// Détection si c'est un caratere majuscule
@@ -54,6 +56,13 @@ bot.on('message',message => {
                     }
 
                 }
+                /* Debug log
+                console.log(total);
+                console.log(calcule);
+                console.log(caracteres);
+                console.log('----------------');
+                */
+                
             }
 
             /* Boucle qui analize chaque lettre */
