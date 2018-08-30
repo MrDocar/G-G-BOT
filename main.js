@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 /* Tableau */
 var insulte = ['connard', 'encule', 'salope', 'fdp', "fils de pute", 'va te faire enculer', 'bande d’abrutis','encule de ta race', 'bounioule', 'batard', 'garage a bite', 'branleur', 'mongol','nique ta mere', 'ntm','niquer sa mere', 'negro','ta mere la pute', 'ta race', 'tapette', 'tantouze','tafiole','travail d’arabe','trou du cul','petite bite','petite merde','zguègue','pute','putain de ta race','putain','poufiasse','pouffiasse','pouf','pedale','pd','tete de gland'];
-var valide = ['OK','TKT','XD','OKAY','LOL','MDR'];
+var valide = ['OK','TKT','XD','OKAY','LOL','MDR','OMG'];
 /* Objet bot */
 var bot = new Discord.Client();
 
