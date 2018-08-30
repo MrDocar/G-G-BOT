@@ -57,7 +57,7 @@ bot.on('message',message => {
             }
 
             /* Boucle qui analize chaque lettre */
-            for (let i = 0; i < strings.length; i++) {
+            for (let i = 0; i < valide.length; i++) {
                 Resultatvalide = strings.indexOf(valide[i]);
                 motvalide = valide[i]
                 if (Resultatvalide != -1) {
