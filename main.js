@@ -45,7 +45,7 @@ bot.on('message',message => {
                 if (isEmoji(message.content)) {
                     null;
                 } else {
-                    if (caracteres == '!' || caracteres == '?' || caracteres == '.' || caracteres == '^' || caracteres == ':' || caracteres == ')' || caracteres == '('|| caracteres == ';' || caracteres == '/') {
+                    if (caracteres == '!' || caracteres == '?' || caracteres == '.' || caracteres == '^' || caracteres == ':' || caracteres == ')' || caracteres == '('|| caracteres == ';' || caracteres == '/' || caracteres == '>' || caracteres == '<') {
                         total = total-1;
                     } else if (caracteres == ' ') {
                         total = total-1;
