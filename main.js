@@ -42,10 +42,10 @@ bot.on('message',message => {
 
             for (let y = 0; y < strings.length; y++) {
                 caracteres = strings.charAt(y);
-                if (isEmoji(message.content)) {
+                if (isEmoji(message.content) || caracteres == '>' || caracteres == '<') {
                     null;
                 } else {
-                    if (caracteres == '!' || caracteres == '?' || caracteres == '.' || caracteres == '^' || caracteres == ':' || caracteres == ')' || caracteres == '('|| caracteres == ';' || caracteres == '/' || caracteres == '>' || caracteres == '<') {
+                    if (caracteres == '!' || caracteres == '?' || caracteres == '.' || caracteres == '^' || caracteres == ':' || caracteres == ')' || caracteres == '('|| caracteres == ';' || caracteres == '/') {
                         total = total-1;
                     } else if (caracteres == ' ') {
                         total = total-1;
